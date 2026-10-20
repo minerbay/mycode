@@ -1,0 +1,204 @@
+/* ==========================================================================
+   1. RESET & GLOBAL STYLE (Mengubah Font & Kanvas)
+   ========================================================================== */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #333333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* Mengatur semua anak langsung body ke tengah, KECUALI tag anchor/tombol */
+body > *:not(a) {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Khusus tombol tambah, kita beri batasan margin manual agar sejajar dengan tabel */
+a[href="tambah.php"] {
+    display: inline-block;
+    max-width: 1000px;
+    margin-left: calc((100% - 1000px) / 2); /* Trik CSS untuk mendorong tombol sejajar tabel di layar lebar */
+}
+
+/* Jika layar di bawah 1000px, kembalikan margin tombol ke normal */
+@media (max-width: 1040px) {
+    a[href="tambah.php"] {
+        margin-left: 0;
+    }
+}
+
+
+/* Mempercantik Judul (h2) */
+h2 {
+    font-size: 28px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   2. NAVIGASI & TOMBOL (Mengubah Elemen Anchor <a>)
+   ========================================================================== */
+/* Tombol "+ Tambah Mahasiswa Baru" */
+a[href="tambah.php"] {
+    font-size: 0.9em;
+    display: inline-block;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-bottom: 25px;
+}
+
+a[href="tambah.php"]:hover {
+    background-color: #0056b3;
+}
+
+/* Tombol "Kembali" di halaman form */
+a[href="index.php"] {
+    display: inline-block;
+    color: #6c757d;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+a[href="index.php"]:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. MODERNISASI TABEL (Menghapus Border Kuno HTML)
+   ========================================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse !important; /* Memaksa border HTML bawaan lebur */
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+}
+
+/* Menghilangkan sisa-sisa garis luar border bawaan HTML */
+table, th, td {
+    border: none !important;
+}
+
+/* Gaya Header Tabel (th) */
+th {
+    background-color: #f1f3f5;
+    color: #495057;
+    text-align: left;
+    font-weight: 600;
+    padding: 14px 16px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* Gaya Baris Sel (td) */
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eeeeee !important;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+/* Memberikan efek zebra (warna selang-seling) pada baris tabel */
+tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+/* Efek Hover saat baris disorot mouse */
+tr:hover {
+    background-color: #f1f3f5;
+}
+
+/* Link Aksi di dalam tabel (Edit | Hapus) */
+td a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Mengubah warna khusus untuk link Hapus */
+td a[href*="hapus.php"] {
+    color: #dc3545;
+}
+
+/* ==========================================================================
+   4. FORMULIR MINIMALIS (Mengubah Input, Textarea, & Button)
+   ========================================================================== */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Merapikan susunan Label */
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #495057;
+    font-size: 14px;
+}
+
+/* Mempercantik kotak Input dan Textarea */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box; /* Memastikan padding tidak merusak lebar elemen */
+    margin-bottom: 5px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    background-color: #fdfdfd;
+}
+
+/* Efek fokus saat kolom input diklik mahasiswa */
+input[type="text"]:focus, textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    background-color: #ffffff;
+}
+
+/* Mengatur tinggi khusus untuk textarea alamat */
+textarea {
+    height: 100px;
+    resize: vertical; /* Izinkan ditarik ke bawah saja */
+}
+
+/* Tombol Simpan / Update Data */
+button[type="submit"] {
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    padding: 11px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
